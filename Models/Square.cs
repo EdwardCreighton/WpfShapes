@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using System.Windows;
+using System.Windows.Media;
 
 namespace WpfShapes.Models
 {
@@ -6,17 +7,17 @@ namespace WpfShapes.Models
     {
         private readonly Brush DefaultFillBrush = Brushes.DarkGreen;
 
-        public Square(double sizeExtent) : base(sizeExtent, sizeExtent)
+        public Square(double sizeExtent) : base(new Point(sizeExtent, sizeExtent))
         {
             SetFillBrush(DefaultFillBrush);
         }
 
-        public Square(double sizeExtent, double leftOffset, double topOffset) : base(sizeExtent, sizeExtent, leftOffset, topOffset)
+        public Square(double sizeExtent, Point offset) : base(new Point(sizeExtent, sizeExtent), offset)
         {
             SetFillBrush(DefaultFillBrush);
         }
 
-        public Square(double sizeExtent, double leftOffset, double topOffset, double angle) : base(sizeExtent, sizeExtent, leftOffset, topOffset, angle)
+        public Square(double sizeExtent, Point offset, double angle) : base(new Point(sizeExtent, sizeExtent), offset, angle)
         {
             SetFillBrush(DefaultFillBrush);
         }

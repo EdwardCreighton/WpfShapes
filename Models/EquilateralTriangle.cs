@@ -12,12 +12,12 @@ namespace WpfShapes.Models
             SetFillBrush(DefaultFillBrush);
         }
         
-        public EquilateralTriangle(double extentSize, double leftOffset, double topOffset) : base(new Point(0.0, 0.0), new Point(0.5 * extentSize, Math.Sqrt(3) / 2.0 * extentSize), new Point(extentSize, 0.0), leftOffset, topOffset)
+        public EquilateralTriangle(double extentSize, Point offset) : base(new Point(0.0, 0.0), new Point(0.5 * extentSize, Math.Sqrt(3) / 2.0 * extentSize), new Point(extentSize, 0.0), offset)
         {
             SetFillBrush(DefaultFillBrush);
         }
         
-        public EquilateralTriangle(double extentSize, double leftOffset, double topOffset, double angle) : base(new Point(0.0, 0.0), new Point(0.5 * extentSize, Math.Sqrt(3) / 2.0 * extentSize), new Point(extentSize, 0.0), leftOffset, topOffset, angle)
+        public EquilateralTriangle(double extentSize, Point offset, double angle) : base(new Point(0.0, 0.0), new Point(0.5 * extentSize, Math.Sqrt(3) / 2.0 * extentSize), new Point(extentSize, 0.0), offset, angle)
         {
             SetFillBrush(DefaultFillBrush);
         }

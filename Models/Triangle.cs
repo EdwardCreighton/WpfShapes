@@ -12,12 +12,12 @@ namespace WpfShapes.Models
             SetFillBrush(DefaultFillBrush);
         }
         
-        public Triangle(Point point1, Point point2, Point point3, double leftOffset, double topOffset) : base(new Point[] { point1, point2, point3 }, leftOffset, topOffset)
+        public Triangle(Point point1, Point point2, Point point3, Point offset) : base(new Point[] { point1, point2, point3 }, offset)
         {
             SetFillBrush(DefaultFillBrush);
         }
         
-        public Triangle(Point point1, Point point2, Point point3, double leftOffset, double topOffset, double angle) : base(new Point[] { point1, point2, point3 }, leftOffset, topOffset, angle)
+        public Triangle(Point point1, Point point2, Point point3, Point offset, double angle) : base(new Point[] { point1, point2, point3 }, offset, angle)
         {
             SetFillBrush(DefaultFillBrush);
         }

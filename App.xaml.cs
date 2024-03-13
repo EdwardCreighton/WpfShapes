@@ -10,14 +10,14 @@ namespace WpfShapes
         public App()
         {
             MainWindow window = new MainWindow();
-
-            window.DrawShape(new Models.Ellipse(new Point(80.0, 40.0), new Point(200.0, 200.0)));
-            window.DrawShape(new Models.Circle(40, new Point(100.0, 200.0)));
-            window.DrawShape(new Models.Square(50.0, 50.0, 50.0, 45.0));
-            window.DrawShape(new Models.EquilateralTriangle(25.0, 300.0, 300.0, 180.0));
-            window.DrawShape(new Models.RightTriangle(50, 25.0, 300.0, 0));
-
             MainWindow = window;
+
+            window.DrawShape(new Models.Ellipse(new Point(80.0, 40.0), new Point(200.0, 200.0), 30.0));
+            window.DrawShape(new Models.Circle(40, new Point(100.0, 200.0)));
+            window.DrawShape(new Models.Square(50.0, new Point(250.0, 70.0), 45.0));
+            window.DrawShape(new Models.EquilateralTriangle(100.0, new Point(100.0, 100.0), 180.0));
+            window.DrawShape(new Models.RightTriangle(new Point(100.0, 70.0), new Point(400.0, 300.0), 270.0));
+
             MainWindow.Show();
         }
     }

@@ -7,42 +7,40 @@ namespace WpfShapes.Models
     {
         private readonly Brush DefaultFillBrush = Brushes.LightGray;
 
-        public Rectangle(double widthExtent, double heightExtent)
+        public Rectangle(Point sizeExtent)
             : base(new Point[]
                         {
                             new(0, 0),
-                            new(widthExtent * 2, 0),
-                            new(widthExtent * 2, heightExtent * 2),
-                            new(0, heightExtent * 2),
+                            new(sizeExtent.X * 2, 0),
+                            new(sizeExtent.X * 2, sizeExtent.Y * 2),
+                            new(0, sizeExtent.Y * 2),
                         })
         {
             SetFillBrush(DefaultFillBrush);
         }
 
-        public Rectangle(double widthExtent, double heightExtent, double leftOffset, double topOffset)
+        public Rectangle(Point sizeExtent, Point offset)
             : base(new Point[]
                         {
                             new(0, 0),
-                            new(widthExtent * 2, 0),
-                            new(widthExtent * 2, heightExtent * 2),
-                            new(0, heightExtent * 2),
+                            new(sizeExtent.X * 2, 0),
+                            new(sizeExtent.X * 2, sizeExtent.Y * 2),
+                            new(0, sizeExtent.Y * 2),
                         },
-                  leftOffset,
-                  topOffset)
+                  offset)
         {
             SetFillBrush(DefaultFillBrush);
         }
 
-        public Rectangle(double widthExtent, double heightExtent, double leftOffset, double topOffset, double angle)
+        public Rectangle(Point sizeExtent, Point offset, double angle)
             : base(new Point[]
                         {
                             new(0, 0),
-                            new(widthExtent * 2, 0),
-                            new(widthExtent * 2, heightExtent * 2),
-                            new(0, heightExtent * 2),
+                            new(sizeExtent.X * 2, 0),
+                            new(sizeExtent.X * 2, sizeExtent.Y * 2),
+                            new(0, sizeExtent.Y * 2),
                         },
-                  leftOffset,
-                  topOffset,
+                  offset,
                   angle)
         {
             SetFillBrush(DefaultFillBrush);

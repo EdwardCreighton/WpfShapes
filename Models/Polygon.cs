@@ -24,7 +24,7 @@ namespace WpfShapes.Models
             SetStrokeThickness(2.0);
         }
 
-        public Polygon(IEnumerable<Point> points, double leftOffset, double topOffset)
+        public Polygon(IEnumerable<Point> points, Point offset)
         {
             _polygon = new System.Windows.Shapes.Polygon();
             _polygon.Points = new PointCollection(points);
@@ -33,11 +33,11 @@ namespace WpfShapes.Models
             SetStrokeBrush(DefaultStrokeBrush);
             SetStrokeThickness(2.0);
 
-            TranslateTransform transform = new TranslateTransform(leftOffset, topOffset);
+            TranslateTransform transform = new TranslateTransform(offset.X, offset.Y);
             _polygon.RenderTransform = transform;
         }
 
-        public Polygon(IEnumerable<Point> points, double leftOffset, double topOffset, double angle)
+        public Polygon(IEnumerable<Point> points, Point offset, double angle)
         {
             _polygon = new System.Windows.Shapes.Polygon();
             _polygon.Points = new PointCollection(points);
@@ -57,8 +57,8 @@ namespace WpfShapes.Models
             center.X /= points.Count();
             center.Y /= points.Count();
 
-            TranslateTransform translate = new TranslateTransform(leftOffset, topOffset);
-            RotateTransform rotate = new RotateTransform(angle, leftOffset + center.X, topOffset + center.Y);
+            TranslateTransform translate = new TranslateTransform(offset.X, offset.Y);
+            RotateTransform rotate = new RotateTransform(angle, offset.X + center.X, offset.Y + center.Y);
             TransformGroup transformGroup = new TransformGroup();
             transformGroup.Children.Add(translate);
             transformGroup.Children.Add(rotate);

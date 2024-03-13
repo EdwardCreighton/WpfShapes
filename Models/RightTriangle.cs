@@ -7,17 +7,17 @@ namespace WpfShapes.Models
     {
         private readonly Brush DefaultFillBrush = Brushes.Cyan;
 
-        public RightTriangle(double widthExtent, double heightExtent) : base(new Point(0.0, 0.0), new Point(widthExtent, 0.0), new Point(0.0, heightExtent))
+        public RightTriangle(Point sizeExtent) : base(new Point(0.0, 0.0), new Point(sizeExtent.X, 0.0), new Point(0.0, sizeExtent.Y))
         {
             SetFillBrush(DefaultFillBrush);
         }
 
-        public RightTriangle(double widthExtent, double heightExtent, double leftOffset, double topOffset) : base(new Point(0.0, 0.0), new Point(widthExtent, 0.0), new Point(0.0, heightExtent), leftOffset, topOffset)
+        public RightTriangle(Point sizeExtent, Point offset) : base(new Point(0.0, 0.0), new Point(sizeExtent.X, 0.0), new Point(0.0, sizeExtent.Y), offset)
         {
             SetFillBrush(DefaultFillBrush);
         }
 
-        public RightTriangle(double widthExtent, double heightExtent, double leftOffset, double topOffset, double angle) : base(new Point(0.0, 0.0), new Point(widthExtent, 0.0), new Point(0.0, heightExtent), leftOffset, topOffset, angle)
+        public RightTriangle(Point sizeExtent, Point offset, double angle) : base(new Point(0.0, 0.0), new Point(sizeExtent.X, 0.0), new Point(0.0, sizeExtent.Y), offset, angle)
         {
             SetFillBrush(DefaultFillBrush);
         }
