@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using System.Windows;
+using System.Windows.Media;
 
 namespace WpfShapes.Models
 {
@@ -6,12 +7,12 @@ namespace WpfShapes.Models
     {
         private readonly Brush DefaultFillColor = Brushes.Orange;
 
-        public Circle(double radius) : base(radius, radius) 
+        public Circle(double radius) : base(new Point(radius, radius)) 
         {
             SetFillBrush(DefaultFillColor);
         }
 
-        public Circle(double radius, double leftOffset, double topOffset) : base(radius, radius, leftOffset, topOffset)
+        public Circle(double radius, Point offset) : base(new Point(radius, radius), offset)
         {
             SetFillBrush(DefaultFillColor);
         }

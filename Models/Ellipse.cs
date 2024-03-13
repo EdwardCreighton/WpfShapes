@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using System.Windows;
+using System.Windows.Media;
 using WpfShapes.ViewModels;
 
 namespace WpfShapes.Models
@@ -12,46 +13,46 @@ namespace WpfShapes.Models
 
         public System.Windows.Shapes.Shape ShapeInternal => _ellipse;
 
-        public Ellipse(double widthExtent, double heightExtent)
+        public Ellipse(Point sizeExtent)
         {
             _ellipse = new System.Windows.Shapes.Ellipse();
             
-            _ellipse.Width = widthExtent * 2.0;
-            _ellipse.Height = heightExtent * 2.0;
+            _ellipse.Width = sizeExtent.X * 2.0;
+            _ellipse.Height = sizeExtent.Y * 2.0;
 
             SetFillBrush(DefaultFillBrush);
             SetStrokeBrush(DefaultStrokeBrush);
             SetStrokeThickness(2.0);
         }
 
-        public Ellipse(double widthExtent, double heightExtent, double leftOffset, double topOffset)
+        public Ellipse(Point sizeExtent, Point offset)
         {
             _ellipse = new System.Windows.Shapes.Ellipse();
 
-            _ellipse.Width = widthExtent * 2.0;
-            _ellipse.Height = heightExtent * 2.0;
+            _ellipse.Width = sizeExtent.X * 2.0;
+            _ellipse.Height = sizeExtent.Y * 2.0;
 
             SetFillBrush(DefaultFillBrush);
             SetStrokeBrush(DefaultStrokeBrush);
             SetStrokeThickness(2.0);
 
-            TranslateTransform transform = new TranslateTransform(leftOffset, topOffset);
+            TranslateTransform transform = new TranslateTransform(offset.X, offset.Y);
             _ellipse.RenderTransform = transform;
         }
 
-        public Ellipse(double widthExtent, double heightExtent, double leftOffset, double topOffset, double angle)
+        public Ellipse(Point sizeExtent, Point offset, double angle)
         {
             _ellipse = new System.Windows.Shapes.Ellipse();
 
-            _ellipse.Width = widthExtent * 2.0;
-            _ellipse.Height = heightExtent * 2.0;
+            _ellipse.Width = sizeExtent.X * 2.0;
+            _ellipse.Height = sizeExtent.Y * 2.0;
 
             SetFillBrush(DefaultFillBrush);
             SetStrokeBrush(DefaultStrokeBrush);
             SetStrokeThickness(2.0);
 
-            TranslateTransform translate = new TranslateTransform(leftOffset, topOffset);
-            RotateTransform rotate = new RotateTransform(angle, leftOffset + widthExtent, topOffset + heightExtent);
+            TranslateTransform translate = new TranslateTransform(offset.X, offset.Y);
+            RotateTransform rotate = new RotateTransform(angle, offset.X + sizeExtent.X, offset.Y + sizeExtent.Y);
             TransformGroup transformGroup = new TransformGroup();
             transformGroup.Children.Add(translate);
             transformGroup.Children.Add(rotate);
