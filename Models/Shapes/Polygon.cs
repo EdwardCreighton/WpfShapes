@@ -3,7 +3,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using WpfShapes.ViewModels;
 
-namespace WpfShapes.Models
+namespace WpfShapes.Models.Shapes
 {
     public class Polygon : IShape
     {
@@ -54,7 +54,7 @@ namespace WpfShapes.Models
 
             Point center = new Point();
 
-            foreach(var point in points)
+            foreach (var point in points)
             {
                 center.X += point.X;
                 center.Y += point.Y;

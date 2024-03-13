@@ -2,7 +2,7 @@
 using System.Windows.Media;
 using WpfShapes.ViewModels;
 
-namespace WpfShapes.Models
+namespace WpfShapes.Models.Shapes
 {
     public class Ellipse : IShape
     {
@@ -16,7 +16,7 @@ namespace WpfShapes.Models
         public Ellipse(Point sizeExtent)
         {
             _ellipse = new System.Windows.Shapes.Ellipse();
-            
+
             _ellipse.Width = sizeExtent.X * 2.0;
             _ellipse.Height = sizeExtent.Y * 2.0;
 

@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 
-namespace WpfShapes.Models
+namespace WpfShapes.Models.Shapes
 {
     public class Rectangle : Polygon
     {
