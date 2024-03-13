@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using WpfShapes.Utils;
 using WpfShapes.ViewModels;
 
 namespace WpfShapes.Models.Shapes
@@ -37,8 +38,7 @@ namespace WpfShapes.Models.Shapes
             SetStrokeBrush(DefaultStrokeBrush);
             SetStrokeThickness(2.0);
 
-            TranslateTransform transform = new TranslateTransform(offset.X, offset.Y);
-            _polygon.RenderTransform = transform;
+            _polygon.Translate(offset);
         }
 
         public Polygon(IEnumerable<Point> points, Point offset, double angle)
@@ -63,12 +63,7 @@ namespace WpfShapes.Models.Shapes
             center.X /= points.Count();
             center.Y /= points.Count();
 
-            TranslateTransform translate = new TranslateTransform(offset.X, offset.Y);
-            RotateTransform rotate = new RotateTransform(angle, offset.X + center.X, offset.Y + center.Y);
-            TransformGroup transformGroup = new TransformGroup();
-            transformGroup.Children.Add(translate);
-            transformGroup.Children.Add(rotate);
-            _polygon.RenderTransform = transformGroup;
+            _polygon.TranslateAndRotate(offset, angle, new Point(offset.X + center.X, offset.Y + center.Y));
         }
 
         public void SetFillBrush(Brush fillBrush)

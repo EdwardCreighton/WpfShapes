@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Media;
+using WpfShapes.Utils;
 using WpfShapes.ViewModels;
 
 namespace WpfShapes.Models.Shapes
@@ -36,8 +37,7 @@ namespace WpfShapes.Models.Shapes
             SetStrokeBrush(DefaultStrokeBrush);
             SetStrokeThickness(2.0);
 
-            TranslateTransform transform = new TranslateTransform(offset.X, offset.Y);
-            _ellipse.RenderTransform = transform;
+            _ellipse.Translate(offset);
         }
 
         public Ellipse(Point sizeExtent, Point offset, double angle)
@@ -51,12 +51,7 @@ namespace WpfShapes.Models.Shapes
             SetStrokeBrush(DefaultStrokeBrush);
             SetStrokeThickness(2.0);
 
-            TranslateTransform translate = new TranslateTransform(offset.X, offset.Y);
-            RotateTransform rotate = new RotateTransform(angle, offset.X + sizeExtent.X, offset.Y + sizeExtent.Y);
-            TransformGroup transformGroup = new TransformGroup();
-            transformGroup.Children.Add(translate);
-            transformGroup.Children.Add(rotate);
-            _ellipse.RenderTransform = transformGroup;
+            _ellipse.TranslateAndRotate(offset, angle, new Point(offset.X + sizeExtent.X, offset.Y + sizeExtent.Y));
         }
 
         public void SetFillBrush(Brush fillBrush)
