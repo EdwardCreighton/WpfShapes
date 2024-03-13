@@ -16,6 +16,8 @@ namespace WpfShapes.Models
 
         public Polygon(IEnumerable<Point> points)
         {
+            // Missing "points.Count == 0" exception check
+
             _polygon = new System.Windows.Shapes.Polygon();
             _polygon.Points = new PointCollection(points);
 
@@ -26,6 +28,8 @@ namespace WpfShapes.Models
 
         public Polygon(IEnumerable<Point> points, Point offset)
         {
+            // Missing "points.Count == 0" exception check
+
             _polygon = new System.Windows.Shapes.Polygon();
             _polygon.Points = new PointCollection(points);
 
@@ -39,6 +43,8 @@ namespace WpfShapes.Models
 
         public Polygon(IEnumerable<Point> points, Point offset, double angle)
         {
+            // Missing "points.Count == 0" exception check
+
             _polygon = new System.Windows.Shapes.Polygon();
             _polygon.Points = new PointCollection(points);
 
