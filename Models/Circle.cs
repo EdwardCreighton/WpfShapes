@@ -15,10 +15,5 @@ namespace WpfShapes.Models
         {
             SetFillBrush(DefaultFillColor);
         }
-
-        public Circle(double radius, double leftOffset, double topOffset, double angle) : base(radius, radius, leftOffset, topOffset, angle)
-        {
-            SetFillBrush(DefaultFillColor);
-        }
     }
 }
